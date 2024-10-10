@@ -22,7 +22,7 @@ url     : # the base hostname & protocol for your site e.g. https://www.someone.
 baseurl : # does not include hostname
 title   : UndyingPanda's Blog
 description: > # this means to ignore newlines until "Language & timezone"
-Hello! I'm a student studying in PekingUniversity. This is a personal blog website, where I will upgrade something interesting and great ideas. I hope they will be helpful to you! Have a nice day~!
+  Hello! I'm a student studying in PekingUniversity. This is a personal blog website, where I will upgrade something interesting and great ideas. I hope they will be helpful to you! Have a nice day~!
 
 ## => Language and Timezone
 ##############################
