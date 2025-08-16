@@ -374,8 +374,8 @@ comment:
       reaction: false # Waline reaction. See https://waline.js.org/reference/client/props.html#reaction
     # Gitalk comment system. See https://github.com/gitalk/gitalk
     gitalk:
-      clientID: Ov23lihqejnu8Lq6jQHc # GitHub Application Client ID
-      clientSecret: b8d2a69e51912a6408ca5f223ab10ba8844dc131 # GitHub Application Client Secret
+      clientID: Ov23liPAoeaPHXld1f6I # GitHub Application Client ID
+      clientSecret: 5c2f4e66077775890da02d482c5f27f3273453ef # GitHub Application Client Secret
       repo: talks # GitHub repository
       owner: UndyingPanda # GitHub repository owner
       proxy: # GitHub repository proxy
