@@ -1,37 +1,19 @@
 ---
-title: 关于我
+title: About Me
 date: 2025-08-16 18:56:01
-layout: about
 ---
 
-我是张明哲，一名充满热情的全栈开发者与技术顾问。在数字世界的探索中，我始终追求简洁、高效与创新的解决方案。
+I'm UndyingPanda, or Qiyao Yan, A PKUer majoring in Computer Science. I'm keen to new techniques. Now my research interest is in Computer Security, Computer Vision.
 
-> "技术不仅是工具，更是表达创造力的语言。"
+### Professional Skill
+- **React, Vue, TypeScript**
+- **Node.js, Python, RESTful API**
+- **AWS, Azure, Docker**
+- **MySQL, MongoDB, Redis**
 
-### 我的理念
-- **简约至上**：用最少的代码解决复杂问题
-- **持续进化**：在技术浪潮中保持学习与成长
-- **开放协作**：相信共享知识的力量
+### Education Background
+- **Peking University** - Computer Science (2023 - )
 
-### 专业技能
-- **前端开发**：React, Vue, TypeScript
-- **后端架构**：Node.js, Python, RESTful API
-- **云服务**：AWS, Azure, Docker
-- **数据库**：MySQL, MongoDB, Redis
-
-### 项目经验
-8年技术生涯中，我主导开发了：
-- 高性能电商平台
-- 金融风控系统
-- 企业级管理系统
-- AI驱动的数据分析工具
-
-### 教育背景
-- **清华大学** - 计算机科学硕士 (2010-2013)
-- **北京大学** - 计算机科学与技术学士 (2006-2010)
-
-### 联系我
-期待与您交流：
-- 邮箱：mingzhe.zhang@example.com
-- GitHub: @mingzhezhang
-- 微信: mingzhe_tech
+### Contact me
+- Email：yqy.1@foxmail.com
+- GitHub: UndyingPanda
