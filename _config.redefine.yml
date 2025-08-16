@@ -11,9 +11,9 @@
 # Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
-  title: Bamboo House
+  title: UndyingPanda's ink
   # Site subtitle
-  subtitle: Personal Blog
+  subtitle: Personal blog of UndyingPanda
   # Author name
   author: UndyingPanda
   # Site URL
@@ -222,8 +222,9 @@ navbar:
     # Status: 
     #   path: https://status.ohevan.com/
     #   icon: fa-regular fa-chart-bar
-    # About: 
-    #   icon: fa-regular fa-user
+    About:
+      path: /about 
+      icon: fa-regular fa-user
     #   submenus:
     #     Me: /about
     #     Github: https://github.com/EvanNotFound/hexo-theme-redefine
