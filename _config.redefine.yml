@@ -11,13 +11,13 @@
 # Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
-  title: Theme Redefine
+  title: Bamboo House
   # Site subtitle
-  subtitle: Redefine Your Hexo Journey.
+  subtitle: Personal Blog
   # Author name
-  author: The Redefine Team
+  author: UndyingPanda
   # Site URL
-  url: https://redefine.ohevan.com
+  url: https://undyingpanda.github.io
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -134,10 +134,18 @@ home_banner:
     light: /images/wallhaven-wqery6-light.webp # light mode
     dark: /images/wallhaven-wqery6-dark.webp # dark mode
   # Home banner title
-  title: Theme Redefine
+  title: Bamboo House
   # Home banner subtitle
   subtitle:
-    text: [] # subtitle text, array
+    text: ['随心所欲地享受每一天\(￣︶￣*\))', 
+      '随时随地，浏览记录O(∩_∩)O', 
+      '如果喜欢，建议给个支持( •̀ ω •́ )✧',
+      '喜欢的话，留个言好嘛(oﾟvﾟ)ノ',
+      '你有建议？反馈作者(●^◡^●)',
+      '欢迎来到我的博客(｡･∀･)ﾉﾞ',
+      '文字正在不断轮换(*￣3￣)╭',
+      '正在努力更新博客(ง •_•)ง',
+      '正在不断努力改善博客中ε=( o｀ω′)ノ'] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
@@ -176,11 +184,11 @@ home_banner:
     style: default # default, reverse, center
     # Social links
     links:
-      github:  # your GitHub URL
+      github: https://github.com/UndyingPanda  # your GitHub URL
       instagram: # your Instagram URL
       zhihu:  # your ZhiHu URL
       twitter:  # your twitter URL
-      email:  # your email
+      email: yqy.1@foxmail.com  # your email
       # ...... # you can add more
     # Social links with QRcode drawers
     qrs:
@@ -243,7 +251,7 @@ home:
   # Sidebar settings
   sidebar:
     enable: true # Whether to enable sidebar
-    position: left # Sidebar position. left, right
+    position: right # Sidebar position. left, right
     first_item: menu # First item in sidebar. menu, info
     announcement: # Announcement text
     show_on_mobile: true # Whether to show sidebar navigation on mobile sheet menu
@@ -251,9 +259,9 @@ home:
       # Archives: 
       #   path: /archives 
       #   icon: fa-regular fa-archive # can be empty
-      # Tags: 
-      #   path: /tags 
-      #   icon: fa-regular fa-tags # can be empty
+       Tags: 
+         path: /tags 
+         icon: fa-regular fa-tags # can be empty
       # Categories: 
       #   path: /categories 
       #   icon: fa-regular fa-folder # can be empty
