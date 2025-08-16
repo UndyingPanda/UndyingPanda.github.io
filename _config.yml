@@ -106,3 +106,11 @@ deploy:
   repo: git@github.com:UndyingPanda/UndyingPanda.github.io.git
   branch: 'main'    # 决定上传到哪个节点下，这里默认选择 'main'
   token:            # 可不填
+
+mathjax:
+    tags: none # or 'ams' or 'all'
+    single_dollars: true # enable single dollar signs as in-line math delimiters
+    cjk_width: 0.9 # relative CJK char width
+    normal_width: 0.6 # relative normal (monospace) width
+    append_css: true # add CSS to every page
+    every_page: true # if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article

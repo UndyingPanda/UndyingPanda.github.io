@@ -137,7 +137,7 @@ home_banner:
   title: UndyingPanda's ink # title text
   # Home banner subtitle
   subtitle:
-    text: ['你好呀！欢迎来到我的博客～'] # subtitle text, array
+    text: ['Welcome to my blog, there is a lot of interesting things~'] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
