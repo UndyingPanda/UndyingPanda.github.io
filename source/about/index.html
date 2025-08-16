@@ -1,854 +1,278 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我 | 响应式个人简介</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #ff477e;
-            --dark-color: #222831;
-            --light-color: #f8f9fa;
-            --gray-color: #6c757d;
-            --transition: all 0.3s ease;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --border-radius: 12px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Nunito', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f5f7ff;
-            background-image: linear-gradient(135deg, #f5f7ff 0%, #f9f9f9 100%);
-            min-height: 100vh;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #3a0ca3);
-            color: white;
-            padding: 4rem 0 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            width: 300%;
-            height: 300%;
-            top: -100%;
-            left: -100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            transform: rotate(30deg);
-        }
-        
-        .hero-content {
-            position: relative;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .profile-container {
-            margin: 0 auto 1.5rem;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .profile-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary-color), #ff5d8f);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3.5rem;
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
-        
-        .tagline {
-            font-size: 1.3rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-            line-height: 1.4;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        
-        .social-icon:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        /* About Section */
-        .about-section {
-            padding: 3.5rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 4px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-        
-        .section-header p {
-            max-width: 600px;
-            margin: 1.5rem auto 0;
-            color: var(--gray-color);
-            font-size: 1.1rem;
-            padding: 0 15px;
-        }
-        
-        .content-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 1.5rem;
-        }
-        
-        .bio {
-            flex: 1;
-            min-width: 100%;
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-        }
-        
-        .bio p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            color: var(--gray-color);
-            line-height: 1.7;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin-top: 1.5rem;
-            width: 100%;
-        }
-        
-        .info-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .info-card i {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-        }
-        
-        .info-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-        
-        .info-card p {
-            color: var(--gray-color);
-            font-size: 0.92rem;
-        }
-        
-        /* Skills Section */
-        .skills-section {
-            background: linear-gradient(to right, #f8f9fa, #f1f3f5);
-            padding: 3.5rem 0;
-        }
-        
-        .skills-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-        
-        .skill-category {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 22px;
-            box-shadow: var(--shadow);
-        }
-        
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.3rem;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 8px;
-        }
-        
-        .skill-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 45px;
-            height: 3px;
-            background: var(--secondary-color);
-        }
-        
-        .skill {
-            margin-bottom: 1.1rem;
-        }
-        
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        
-        .skill-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        
-        .skill-percent {
-            color: var(--gray-color);
-            font-size: 0.85rem;
-        }
-        
-        .progress-bar {
-            height: 7px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: var(--primary-color);
-            border-radius: 4px;
-        }
-        
-        /* Timeline Section */
-        .timeline-section {
-            padding: 3.5rem 0;
-            background-color: #f8f9fa;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--primary-color);
-            left: 30px;
-        }
-        
-        .timeline-item {
-            margin-bottom: 40px;
-            position: relative;
-            width: 100%;
-            padding-left: 70px;
-            text-align: left;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            top: 0;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 4px solid white;
-            left: 30px;
-            margin-left: -9px;
-        }
-        
-        .timeline-date {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.92rem;
-        }
-        
-        .timeline-content {
-            background: white;
-            padding: 22px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            border-style: solid;
-            border-width: 10px;
-            top: 20px;
-            left: -20px;
-            border-color: transparent white transparent transparent;
-        }
-        
-        .timeline-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-        
-        .timeline-content h4 {
-            color: var(--gray-color);
-            font-weight: 600;
-            margin-bottom: 0.7rem;
-            font-size: 0.95rem;
-        }
-        
-        .timeline-content p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 3.5rem 0;
-            background: linear-gradient(135deg, var(--primary-color), #3a0ca3);
-            color: white;
-            text-align: center;
-        }
-        
-        .contact-section .section-header h2 {
-            color: white;
-        }
-        
-        .contact-section .section-header p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .contact-info p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .contact-btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 14px 35px;
-            background: white;
-            color: var(--primary-color);
-            font-size: 1.05rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .contact-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 2.5rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* 移动端优化 */
-        @media (max-width: 768px) {
-            header {
-                padding: 3.5rem 0 2rem;
-            }
-            
-            .profile-container {
-                width: 130px;
-                height: 130px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.15rem;
-            }
-            
-            .social-icon {
-                width: 42px;
-                height: 42px;
-                font-size: 1.1rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .section-header p {
-                font-size: 1rem;
-            }
-            
-            .bio {
-                padding: 20px;
-            }
-            
-            .bio p {
-                font-size: 1rem;
-            }
-            
-            .info-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 12px;
-            }
-            
-            .info-card {
-                padding: 18px;
-            }
-            
-            .info-card i {
-                font-size: 2rem;
-            }
-            
-            .info-card h3 {
-                font-size: 1.15rem;
-            }
-            
-            .contact-info {
-                font-size: 1rem;
-            }
-            
-            .contact-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            header {
-                padding: 3rem 0 1.8rem;
-            }
-            
-            .profile-container {
-                width: 120px;
-                height: 120px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .tagline {
-                font-size: 1.05rem;
-            }
-            
-            .social-links {
-                gap: 12px;
-            }
-            
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-header p {
-                font-size: 0.95rem;
-            }
-            
-            .bio {
-                padding: 18px;
-            }
-            
-            .bio p {
-                font-size: 0.95rem;
-            }
-            
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .skill-category {
-                padding: 20px;
-            }
-            
-            .skill-category h3 {
-                font-size: 1.2rem;
-            }
-            
-            .skill-name {
-                font-size: 0.92rem;
-            }
-            
-            .timeline-content {
-                padding: 20px;
-            }
-            
-            .timeline-content h3 {
-                font-size: 1.15rem;
-            }
-            
-            .contact-info {
-                font-size: 0.95rem;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<!-- saved from url=(0026)http://121.36.72.140/about -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me｜UndyingPanda</title>
+  <link rel="icon" type="image/x-icon" href="http://121.36.72.140/static/favicon.ico">
+  <style>
+    /* 天空蓝风格样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background: #f0f8ff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #c3e4fe 0%, #d6eaff 100%);
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      width: 90%;
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 4px 15px rgba(77, 171, 247, 0.3);
+      margin: 0 auto 1.5rem;
+      object-fit: cover;
+    }
+
+    .logo {
+      color: #4dabf7;
+      font-size: 3.2rem;
+      margin-bottom: 1.8rem;
+      text-shadow: 0 4px 6px rgba(77, 171, 247, 0.2);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    /* 卡片相关样式 - 天空蓝风格 */
+    .about-cards {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .about-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 30px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 8px 24px rgba(100, 177, 255, 0.25);
+      text-align: left;
+      border: 1px solid rgba(77, 171, 247, 0.15);
+      transition: transform 0.3s ease;
+    }
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+    .about-card h2 {
+      color: #4dabf7;
+      font-size: 1.5rem;
+      margin-bottom: .8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-card p, .about-card a {
+      color: #339af0;
+      line-height: 1.6;
+    }
+    .tags span {
+      display: inline-block;
+      background: #d6ebff;
+      margin: 6px 8px 6px 0;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: .9rem;
+      color: #339af0;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tags span:hover {
+      transform: scale(1.05);
+      background: #c5e4ff;
+    }
+    .links a {
+      margin-right: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.1rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .links a:hover { 
+      text-decoration: none;
+      background: rgba(77, 171, 247, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    /* 心形装饰动画 - 天空蓝风格 */
+    .floating-hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: currentColor;
+      opacity: 0;
+      animation: floating 12s infinite ease-in;
+    }
+    
+    /* 心形SVG */
+    .heart::before, .heart::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background: currentColor;
+      border-radius: 50%;
+    }
+    
+    .heart::before {
+      transform: translateX(-50%);
+    }
+    
+    .heart::after {
+      transform: translateY(-50%);
+    }
+    
+    .heart {
+      transform: rotate(-45deg);
+      border-radius: 0 0 0 10px;
+    }
+
+    @keyframes floating {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg);
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-150px) rotate(360deg);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header with Hero Section -->
-    <header>
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-container">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
-                <h1>张明哲</h1>
-                <p class="tagline">高级全栈开发工程师 & 技术顾问</p>
-                <div class="social-links">
-                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-medium-m"></i></a>
-                </div>
-            </div>
-        </div>
-    </header>
+  <div class="floating-hearts" id="hearts-container"><div class="heart" style="color: rgb(116, 192, 252); width: 18.5752px; height: 18.5752px; left: 76.2731vw; animation-delay: 0.979755s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 20.7192px; height: 20.7192px; left: 39.9475vw; animation-delay: 7.01592s;"></div><div class="heart" style="color: rgb(165, 216, 255); width: 23.3448px; height: 23.3448px; left: 17.0223vw; animation-delay: 6.16824s;"></div><div class="heart" style="color: rgb(165, 216, 255); width: 23.0327px; height: 23.0327px; left: 26.9997vw; animation-delay: 9.38433s;"></div><div class="heart" style="color: rgb(116, 192, 252); width: 20.4772px; height: 20.4772px; left: 62.5661vw; animation-delay: 6.87689s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 23.8134px; height: 23.8134px; left: 61.2141vw; animation-delay: 0.169024s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 19.2784px; height: 19.2784px; left: 94.8385vw; animation-delay: 7.93434s;"></div><div class="heart" style="color: rgb(116, 192, 252); width: 15.1428px; height: 15.1428px; left: 87.9545vw; animation-delay: 5.41186s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 11.5064px; height: 11.5064px; left: 77.1043vw; animation-delay: 1.46666s;"></div><div class="heart" style="color: rgb(165, 216, 255); width: 22.3931px; height: 22.3931px; left: 69.9316vw; animation-delay: 5.25351s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 20.469px; height: 20.469px; left: 91.8683vw; animation-delay: 9.42387s;"></div><div class="heart" style="color: rgb(165, 216, 255); width: 19.2063px; height: 19.2063px; left: 33.9336vw; animation-delay: 3.09162s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 19.6514px; height: 19.6514px; left: 75.4681vw; animation-delay: 0.94712s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 15.1162px; height: 15.1162px; left: 13.8376vw; animation-delay: 4.8339s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 14.6173px; height: 14.6173px; left: 83.2066vw; animation-delay: 9.15263s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 18.8187px; height: 18.8187px; left: 3.11962vw; animation-delay: 8.3424s;"></div><div class="heart" style="color: rgb(116, 192, 252); width: 21.9868px; height: 21.9868px; left: 51.7131vw; animation-delay: 3.16321s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 24.9579px; height: 24.9579px; left: 48.4591vw; animation-delay: 5.05744s;"></div><div class="heart" style="color: rgb(165, 216, 255); width: 18.5908px; height: 18.5908px; left: 50.7459vw; animation-delay: 7.25172s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 22.3449px; height: 22.3449px; left: 49.192vw; animation-delay: 5.13529s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 14.252px; height: 14.252px; left: 5.07464vw; animation-delay: 4.38599s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 22.9536px; height: 22.9536px; left: 95.9581vw; animation-delay: 2.52071s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 12.1723px; height: 12.1723px; left: 48.1771vw; animation-delay: 8.44744s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 15.0453px; height: 15.0453px; left: 51.0833vw; animation-delay: 4.30033s;"></div><div class="heart" style="color: rgb(77, 171, 247); width: 12.3178px; height: 12.3178px; left: 44.1018vw; animation-delay: 7.49576s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 21.5017px; height: 21.5017px; left: 38.9807vw; animation-delay: 8.24892s;"></div><div class="heart" style="color: rgb(165, 216, 255); width: 24.4495px; height: 24.4495px; left: 81.0383vw; animation-delay: 0.587033s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 15.6065px; height: 15.6065px; left: 63.7879vw; animation-delay: 3.85818s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 19.1815px; height: 19.1815px; left: 26.1209vw; animation-delay: 5.54648s;"></div><div class="heart" style="color: rgb(51, 154, 240); width: 11.0197px; height: 11.0197px; left: 42.3924vw; animation-delay: 1.41695s;"></div></div>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>关于我</h2>
-                <p>技术爱好者、创新者与终身学习者</p>
-            </div>
-            <div class="content-wrapper">
-                <div class="bio">
-                    <p>我是一名拥有8年经验的资深软件工程师，专注于构建高性能、可扩展的Web应用程序。我热衷于将复杂的技术问题转化为简洁优雅的解决方案。</p>
-                    <p>职业生涯中，我带领团队成功交付了超过20个项目，涉及电商、金融科技和人工智能等多个领域。我的技术专长包括JavaScript生态系统、云架构设计和性能优化。</p>
-                    <p>在闲暇时间，我经常参与开源项目贡献，在技术社区发表文章，并热衷于指导初级开发人员成长。我相信持续学习和分享是技术进步的关键。</p>
-                </div>
-                
-                <div class="info-grid">
-                    <div class="info-card">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>计算机科学硕士</h3>
-                        <p>清华大学</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-code"></i>
-                        <h3>8+年经验</h3>
-                        <p>全栈开发</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-project-diagram"></i>
-                        <h3>25+个项目</h3>
-                        <p>成功交付</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-globe"></i>
-                        <h3>多语言</h3>
-                        <p>中文、英语</p>
-                    </div>
-                </div>
-            </div>
+  <main class="container">
+    <!-- 头像 -->
+    <img src="./About Me｜UndyingPanda_files/avatar.jpg" alt="avatar" class="avatar">
+
+    <!-- 标题：用打字机效果更可爱 -->
+    <h1 class="logo" id="typewriter">Hi, I'm UndyingPanda !</h1>
+
+    <!-- 卡片组 -->
+    <section class="about-cards">
+      <!-- 1. 关于我 -->
+      <article class="about-card">
+        <h2>🌈 关于我</h2>
+        <p>北京大学计算机科学与技术专业在读，我感兴趣的领域是计算机视觉，系统安全。</p>
+      </article>
+
+      <!-- 2. 技术栈 -->
+      <article class="about-card">
+        <h2>🛠️ 技术栈</h2>
+        <div class="tags">
+          <span>Python</span><span>FastAPI</span><span>Rust</span>
+          <span>C/C++</span><span>Linux</span><span>Docker</span>
+          <span>Git</span><span>MySQL</span><span>Algorithm</span>
+          <span>Machine Learning</span><span>Deep Learning</span>
+          <span>System Security</span>
         </div>
+      </article>
+
+      <!-- 3. 找到我 -->
+      <article class="about-card">
+        <h2>📬 找到我</h2>
+        <div class="links">
+          <a href="https://github.com/UndyingPanda" target="_blank">GitHub</a>
+          <a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=yqy.1@foxmail.com">Email</a>
+          <a href="https://blog.csdn.net/StudyingPanda?spm=1010.2135.3001.5343" target="_blank">Blog</a>
+        </div>
+      </article>
     </section>
+  </main>
 
-    <!-- Skills Section -->
-    <section class="skills-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>专业技能</h2>
-                <p>多年积累的专业能力与知识</p>
-            </div>
-            <div class="skills-container">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>前端开发</h3>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">React.js</span>
-                                <span class="skill-percent">95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">Vue.js</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">TypeScript</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">HTML5 & CSS3</span>
-                                <span class="skill-percent">100%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 100%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>后端开发</h3>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-percent">92%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-percent">88%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">SQL/NoSQL</span>
-                                <span class="skill-percent">94%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 94%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-info">
-                                <span class="skill-name">REST API</span>
-                                <span class="skill-percent">96%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 96%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- 打字机效果 -->
+  <script>
+    // 打字机效果
+    const txt = 'Hi, I\'m UndyingPanda !';
+    let i = 0;
+    const el = document.getElementById('typewriter');
+    function type() {
+      if (i < txt.length) {
+        el.textContent += txt.charAt(i);
+        i++;
+        setTimeout(type, 120);
+      }
+    }
+    type();
+    
+    // 生成心形装饰
+    function createHearts() {
+      const heartsContainer = document.getElementById('hearts-container');
+      const colors = ['#4dabf7', '#74c0fc', '#a5d8ff', '#339af0'];
+      
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        
+        // 随机颜色
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.color = color;
+        
+        // 随机大小
+        const size = Math.random() * 15 + 10;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+        
+        // 随机位置
+        heart.style.left = `${Math.random() * 100}vw`;
+        
+        // 随机动画延迟
+        heart.style.animationDelay = `${Math.random() * 10}s`;
+        
+        heartsContainer.appendChild(heart);
+      }
+    }
+    
+    createHearts();
+  </script>
 
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>职业经历</h2>
-                <p>专业旅程中的重要里程碑</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2020 - 至今</div>
-                        <h3>技术总监</h3>
-                        <h4>云启科技有限公司</h4>
-                        <p>负责技术战略规划与团队管理，推动微服务架构转型，提高系统性能40%。领导开发了基于AI的企业级解决方案，获得行业创新奖。</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2017 - 2020</div>
-                        <h3>高级全栈工程师</h3>
-                        <h4>创科金融科技</h4>
-                        <p>设计并开发了金融风控系统，处理每日超过500万笔交易。优化了前后端架构，使系统响应时间减少60%。指导5人开发团队。</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2015 - 2017</div>
-                        <h3>前端技术主管</h3>
-                        <h4>优品电子商务</h4>
-                        <p>重构了整体前端架构，引入React技术栈，大幅提升用户体验和开发效率。团队规模从3人扩大到12人。</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2013 - 2015</div>
-                        <h3>Web开发工程师</h3>
-                        <h4>蓝海科技有限公司</h4>
-                        <p>参与多个企业级Web应用开发，积累了丰富的前后端开发经验。独立完成了公司内部管理系统，获得年度最佳员工奖。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>保持联系</h2>
-                <p>我随时欢迎技术交流与项目合作机会</p>
-            </div>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> mingzhe.zhang@example.com</p>
-                <p><i class="fas fa-phone"></i> (+86) 138-8888-8888</p>
-                <p><i class="fas fa-map-marker-alt"></i> 北京市海淀区科技园区</p>
-            </div>
-            
-            <a href="mailto:mingzhe.zhang@example.com" class="contact-btn">
-                发送邮件 <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 张明哲个人简介. 保留所有权利</p>
-            <p>感谢访问 | 用代码创造价值，用技术改变世界</p>
-        </div>
-    </footer>
-</body>
-</html>
+</body></html>
