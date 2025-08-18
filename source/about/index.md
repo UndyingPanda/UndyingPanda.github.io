@@ -4,7 +4,7 @@ date: 2025-08-16 18:56:01
 ---
 
 I'm UndyingPanda, A PKUer majoring in Computer Science. 
-I'm keen to new techniques and the underlying principle of computer.
+I'm keen to new techniques and the underlying principles of computer.
 Now my research interest is in Computer Security, Computer Vision.
 
 ### Professional Skill
